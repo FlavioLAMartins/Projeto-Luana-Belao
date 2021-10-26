@@ -43,7 +43,7 @@ try {
       nav.classList.remove('show');
     });
   }
-  /* mudar o header da pagina quando der o scroll */
+  /* change the page header when scroll is activated*/
 
 } catch (err) {
   _didIteratorError2 = true;
@@ -87,7 +87,16 @@ var scrollReveal = ScrollReveal({
   duration: 700,
   reset: true
 });
-scrollReveal.reveal("#home .image, #home .text,\n  #about .image, #about .text,\n  #services header, #services .card,\n  #testimonials header, #testimonials .testimonials\n  #contact .text, #contact .links\n  ", {
+scrollReveal.reveal("#home .image, #home .text,\n  #about .image, #about .text,\n  #services header, #services .card,\n  #testimonials header, #testimonials .testimonials\n  #contact .text, #contact .links,\n  footer .brand, footer .social\n  ", {
   interval: 100
 });
 /* button back-to-top*/
+
+var backToTopButton = document.querySelector('.back-to-top');
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 560) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
