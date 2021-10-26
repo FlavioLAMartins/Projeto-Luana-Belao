@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?dsyvd9');
-  src:  url('fonts/icomoon.eot?dsyvd9#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?dsyvd9') format('truetype'),
-    url('fonts/icomoon.woff?dsyvd9') format('woff'),
-    url('fonts/icomoon.svg?dsyvd9#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?okhfvj');
+  src:  url('fonts/icomoon.eot?okhfvj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?okhfvj') format('truetype'),
+    url('fonts/icomoon.woff?okhfvj') format('woff'),
+    url('fonts/icomoon.svg?okhfvj#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,6 +27,9 @@
 
 .icon-woman-hair:before {
   content: "\e909";
+}
+.icon-arrow-up:before {
+  content: "\e90c";
 }
 .icon-closed_eye_hide_sleep_icon:before {
   content: "\e900";
