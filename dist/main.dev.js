@@ -60,16 +60,18 @@ try {
   }
 }
 
-var header = document.querySelector('#header');
-var navHeight = header.offsetHeight;
-window.addEventListener('scroll', function () {
+function changeHeaderWhenScroll() {
+  var header = document.querySelector('#header');
+  var navHeight = header.offsetHeight;
+
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll');
   } else {
     header.classList.remove('scroll');
   }
-});
+}
 /* Testimonials carousel slider swiper */
+
 
 var swiper = new Swiper('.swiper', {
   slidesPerView: 1,
@@ -92,11 +94,17 @@ scrollReveal.reveal("#home .image, #home .text,\n  #about .image, #about .text,\
 });
 /* button back-to-top*/
 
-var backToTopButton = document.querySelector('.back-to-top');
-window.addEventListener('scroll', function () {
+function backToTop() {
+  var backToTopButton = document.querySelector('.back-to-top');
+
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show');
   } else {
     backToTopButton.classList.remove('show');
   }
+}
+
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll();
+  backToTop();
 });
