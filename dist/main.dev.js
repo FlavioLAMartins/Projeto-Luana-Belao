@@ -1,6 +1,6 @@
 "use strict";
 
-/* abre e fecha o menu quando clicado no icone hamburguer e x */
+/* opens and closes the menu when clicked on the burger icon and x */
 var nav = document.querySelector('#header nav');
 var toggle = document.querySelectorAll('nav .toggle');
 var _iteratorNormalCompletion = true;
@@ -14,7 +14,7 @@ try {
       nav.classList.toggle('show');
     });
   }
-  /* quando clicar em um item do menu, esconder o menu */
+  /* when clicking on a menu item, hide the menu */
 
 } catch (err) {
   _didIteratorError = true;
@@ -79,7 +79,13 @@ var swiper = new Swiper('.swiper', {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 });
 /*ScrollReveal*/
 
@@ -92,7 +98,7 @@ var scrollReveal = ScrollReveal({
 scrollReveal.reveal("#home .image, #home .text,\n  #about .image, #about .text,\n  #services header, #services .card,\n  #testimonials header, #testimonials .testimonials\n  #contact .text, #contact .links,\n  footer .brand, footer .social\n  ", {
   interval: 100
 });
-/* button back-to-top*/
+/* Button back-to-top*/
 
 function backToTop() {
   var backToTopButton = document.querySelector('.back-to-top');
@@ -103,8 +109,11 @@ function backToTop() {
     backToTopButton.classList.remove('show');
   }
 }
+/* When Scroll*/
+
 
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll();
   backToTop();
 });
+/* menu as activated the visible section on the page */

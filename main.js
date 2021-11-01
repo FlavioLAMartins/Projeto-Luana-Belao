@@ -1,4 +1,4 @@
-/* abre e fecha o menu quando clicado no icone hamburguer e x */
+/* opens and closes the menu when clicked on the burger icon and x */
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
 
@@ -8,7 +8,7 @@ for (const element of toggle) {
   })
 }
 
-/* quando clicar em um item do menu, esconder o menu */
+/* when clicking on a menu item, hide the menu */
 
 const links = document.querySelectorAll('nav ul li a')
 
@@ -37,7 +37,13 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 /*ScrollReveal*/
@@ -60,7 +66,7 @@ scrollReveal.reveal(
   { interval: 100 }
 )
 
-/* button back-to-top*/
+/* Button back-to-top*/
 function backToTop() {
   const backToTopButton = document.querySelector('.back-to-top')
 
@@ -71,7 +77,11 @@ function backToTop() {
   }
 }
 
+/* When Scroll*/
+
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
   backToTop()
 })
+
+/* menu as activated the visible section on the page */
