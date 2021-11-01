@@ -60,10 +60,10 @@ try {
   }
 }
 
-function changeHeaderWhenScroll() {
-  var header = document.querySelector('#header');
-  var navHeight = header.offsetHeight;
+var header = document.querySelector('#header');
+var navHeight = header.offsetHeight;
 
+function changeHeaderWhenScroll() {
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll');
   } else {
@@ -100,13 +100,54 @@ scrollReveal.reveal("#home .image, #home .text,\n  #about .image, #about .text,\
 });
 /* Button back-to-top*/
 
-function backToTop() {
-  var backToTopButton = document.querySelector('.back-to-top');
+var backToTopButton = document.querySelector('.back-to-top');
 
+function backToTop() {
   if (window.scrollY >= 560) {
     backToTopButton.classList.add('show');
   } else {
     backToTopButton.classList.remove('show');
+  }
+}
+/* menu as activated the visible section on the page */
+
+
+var sections = document.querySelectorAll('main section[id]');
+
+function activateMenuAtCurrentSection() {
+  var checkpoint = window.pageYOffset + window.innerHeight / 8 * 4;
+  var _iteratorNormalCompletion3 = true;
+  var _didIteratorError3 = false;
+  var _iteratorError3 = undefined;
+
+  try {
+    for (var _iterator3 = sections[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+      var section = _step3.value;
+      var sectionTop = section.offsetTop;
+      var sectionHeight = section.offsetHeight;
+      var sectionId = section.getAttribute('id');
+      var checkpointStart = checkpoint >= sectionTop;
+      var checkpointEnd = checkpoint <= sectionTop + sectionHeight;
+
+      if (checkpointStart && checkpointEnd) {
+        document.querySelector('nav ul li a [href*=' + sectionId + ']').classList.add('active');
+      } else {
+        document.querySelector('nav ul li a [href*=' + sectionId + ']').classList.remove('active');
+      }
+    }
+  } catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+        _iterator3["return"]();
+      }
+    } finally {
+      if (_didIteratorError3) {
+        throw _iteratorError3;
+      }
+    }
   }
 }
 /* When Scroll*/
@@ -115,5 +156,5 @@ function backToTop() {
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll();
   backToTop();
+  activateMenuAtCurrentSection();
 });
-/* menu as activated the visible section on the page */
