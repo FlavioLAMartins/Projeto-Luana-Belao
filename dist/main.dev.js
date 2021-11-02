@@ -130,9 +130,9 @@ function activateMenuAtCurrentSection() {
       var checkpointEnd = checkpoint <= sectionTop + sectionHeight;
 
       if (checkpointStart && checkpointEnd) {
-        document.querySelector('nav ul li a [href*=' + sectionId + ']').classList.add('active');
+        document.querySelector('nav ul li a[href*=' + sectionId + ']').classList.add('active');
       } else {
-        document.querySelector('nav ul li a [href*=' + sectionId + ']').classList.remove('active');
+        document.querySelector('nav ul li a[href*=' + sectionId + ']').classList.remove('active');
       }
     }
   } catch (err) {
